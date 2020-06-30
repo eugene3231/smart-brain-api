@@ -42,6 +42,19 @@ app.post('/signin', (req, res) => {
     res.json('signing in')
 })
 
+app.post('/register', (req, res) => {
+    const { email, name, password } = req.body;
+    database.users.push({
+        id: '125',
+        name: name,
+        email: email,
+        password: password,
+        entries: 0,
+        joindate: new Date()
+    })
+    res.json(database.users[database.users.length-1]);
+})
+
 app.listen(3000, () => {
     console.log('app is running');
 })
