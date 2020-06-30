@@ -1,26 +1,28 @@
 const express = require('express');
-const bcrypt = require('bcrypt-nodejs');
+// const bcrypt = require('bcrypt-nodejs');
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cors());
 
 const database = {
     users: [
     {
         id: '123',
         name: 'john',
-        email: 'john@gmail.com',
         password: 'cookies',
+        email: 'john@gmail.com',
         entries: 0,
         joindate: new Date()
     },
     {
         id: '124',
         name: 'bobbyb',
-        email: 'bobbyb@gmail.com',
         password: 'bobby',
+        email: 'bobbyb@gmail.com',
         entries: 0,
         joindate: new Date()
     }
@@ -40,20 +42,19 @@ app.get('/', (req, res) => {
 })
 
 app.post('/signin', (req, res) => {
-    bcrypt.compare("apples", '$2a$10$NH50cIAjNnXNlWrjv4TRiu6RDm./i2qzReGb..SqyBV2Z3/8sXlzK', function(err, res) {
-        console.log('first guess', res)
-    });
-    bcrypt.compare("veggies", '$2a$10$NH50cIAjNnXNlWrjv4TRiu6RDm./i2qzReGb..SqyBV2Z3/8sXlzK', function(err, res) {
-        console.log('second guess', res)
-    });
+    // bcrypt.compare("apples", '$2a$10$NH50cIAjNnXNlWrjv4TRiu6RDm./i2qzReGb..SqyBV2Z3/8sXlzK', function(err, res) {
+    //     console.log('first guess', res)
+    // });
+    // bcrypt.compare("veggies", '$2a$10$NH50cIAjNnXNlWrjv4TRiu6RDm./i2qzReGb..SqyBV2Z3/8sXlzK', function(err, res) {
+    //     console.log('second guess', res)
+    // });
     if (req.body.email === database.users[0].email && 
         req.body.password === database.users[0].password) {
-            return res.json('success');
+            res.json('success');
         }
     else {
-        res.status(400).json('error logging in');
+           res.status(400).json('error logging in');
     }
-    res.json('signing in')
 })
 
 app.post('/register', (req, res) => {
