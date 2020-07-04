@@ -5,7 +5,7 @@
 ## About
 a fully responsive react.js web app that uses Clarifai ML API to identify faces on a given image.
 
-features register, signin/signout functions.
+features register, signin, signout functions and also a counter to keep track of images identified.
 
 this is the back-end for the app, the front-end: [face-recognition](https://github.com/eugene3231/face-recognition).
 ### Used
