@@ -7,7 +7,7 @@ a fully responsive react.js web app that uses Clarifai ML API to identify faces 
 
 features register, signin/signout functions.
 
-this is the back-end for the app, the front-end: [smart-brain-api](https://github.com/eugene3231/face-recognition).
+this is the back-end for the app, the front-end: [face-recognition](https://github.com/eugene3231/face-recognition).
 ### Used
 * Node.js
 * Express.js
